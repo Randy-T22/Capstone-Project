@@ -1,12 +1,12 @@
-from typing_extensions import Required
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 # Create your models here.
 
 class CustomManager(BaseUserManager):
-    def create_user(self, email, first_name, password, **other_fields):
+    def create_user(self, email, first_name, **other_fields):
         other_fields.setdefault('is_staff', True)
+        other_fields.setdefault("is_active", True)
         other_fields.setdefault('is_superuser', True)
 
 
@@ -28,7 +28,7 @@ class CustomManager(BaseUserManager):
 
         return user
 
-    def create_user(self, email, first_name, password, **other_fields):
+    def create_user(self, email, first_name, **other_fields):
 
         if not email:
             raise ValueError("Provide an email address.")
@@ -70,5 +70,9 @@ class Employee(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
 
+    objects = CustomManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['firstName', 'lastName', 'dob', 'title', 'language']
+
+    def __str__(self):
+        return self.first_name
