@@ -18,8 +18,7 @@ def home_view(request) -> HttpResponse:
     else:
         return render(request, "index.html")
 
-<<<<<<< HEAD
-=======
+
 def logoutUser(request):
     logout(request)
     return redirect("login")
@@ -39,4 +38,3 @@ def login_view(request):
                 messages.info(request, 'Username OR password is incorrect')
         context = {}
         return render(request, 'login.html', context)
->>>>>>> daed97e1b7eda9d4e7a17216e95d444976181346
