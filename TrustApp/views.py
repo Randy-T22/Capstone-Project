@@ -12,11 +12,9 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 
+@login_required(login_url='login')
 def home_view(request) -> HttpResponse:
-    if request.user.is_authenticated:
-        return redirect("login")
-    else:
-        return render(request, "index.html")
+    return render(request, "index.html")
 
 
 def logoutUser(request):
@@ -24,9 +22,6 @@ def logoutUser(request):
     return redirect("login")
 
 def login_view(request):
-    # if request.user.is_authenticated:
-    #     return redirect('')
-    # else:
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')
