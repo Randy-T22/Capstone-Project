@@ -7,5 +7,6 @@ from django.http.response import HttpResponse
 
 def home_view(request:HttpRequest)->render:
     return render(request, 'index.html')
-
+def log_view(request:HttpRequest)->render:
+    return render(request,'logN.html')
 # Test

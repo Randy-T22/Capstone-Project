@@ -19,6 +19,7 @@ from TrustApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view)
+    path('', home_view),
+    path('login', log_view)
 ]
 
