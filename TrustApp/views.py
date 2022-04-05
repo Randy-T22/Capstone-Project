@@ -12,12 +12,11 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 
-@login_required(login_url='login')
-def home_view(request:HttpRequest)->render:
-    return render(request, 'index.html')
-
-def log_view(request:HttpRequest)->render:
-    return render(request,'login.html')
+def home_view(request) -> HttpResponse:
+    if request.user.is_authenticated:
+        return redirect("login")
+    else:
+        return render(request, "index.html")
 
 
 def logoutUser(request):
