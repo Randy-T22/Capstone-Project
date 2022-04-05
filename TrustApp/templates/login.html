@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,14 +24,16 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        background-image: static/images/thespacebrain.jpeg;
+        background-color:eggwhite;
+        background-image: url("https://th.bing.com/th/id/OIP.pZZUmaI-ssFVMgDwcdrH0wHaHV?w=173&h=180&c=7&r=0&o=5&dpr=2&pid=1.7");
+        background-size:cover;
       }
       .user_card {
         width: 350px;
         margin-top: auto;
         margin-bottom: auto;
-        background: #e4d61b;
         position: relative;
+        border: 3px solid aqua;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -48,8 +52,10 @@
       }
 
       #form-title {
-        color: white;
+        font-family:impact;
+        color: #17faee;
         margin-top: 1.5vw;
+        font-size:10vw;
       }
 
       .login_btn {
@@ -65,7 +71,7 @@
         padding: 0 2rem;
       }
       .input-group-text {
-        background: #f7ba5b !important;
+        background: blue !important;
         color: white !important;
         border: 0 !important;
         border-radius: 0.25rem 0 0 0.25rem !important;
@@ -73,7 +79,7 @@
       .input_user,
       .input_pass:focus {
         box-shadow: none !important;
-        outline: 0px !important;
+        outline: 3px !important;
       }
 
       #messages {
@@ -92,7 +98,7 @@
       <div class="d-flex justify-content-center h-100">
         <div class="user_card">
           <div class="d-flex justify-content-center">
-            <h3 id="form-title">LOGIN</h3>
+            <h3 id="form-title">Trust</h3>
           </div>
           <div class="d-flex justify-content-center form_container">
             <form method="POST" action="">
