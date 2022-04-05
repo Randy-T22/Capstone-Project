@@ -12,13 +12,7 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 
-<<<<<<< HEAD
-def home_view(request:HttpRequest)->render:
-    return render(request, 'index.html')
-def log_view(request:HttpRequest)->render:
-    return render(request,'logN.html')
-# Test
-=======
+
 def home_view(request) -> HttpResponse:
     if request.user.is_authenticated:
         return redirect("login")
@@ -45,4 +39,3 @@ def login_view(request):
                 messages.info(request, 'Username OR password is incorrect')
         context = {}
         return render(request, 'login.html', context)
->>>>>>> 59ab877538bca6ce910e0eabbf4c1c0aea4a3bec
