@@ -5,28 +5,31 @@ body {
   margin: 0px;
 }
 
-a {
-  text-decoration: none;
-  color: white;
-}
-
 .navbar {
+  padding-top: 10px;
+
   background-color: rgb(5, 160, 101);
-  height: 10%;
   width: 100%;
-  margin-top: 0%;
+  color: white;
   position: fixed;
+  margin-top: -1.49%;
+  background-size: auto;
+  height: 60px;
 }
 
 .title {
-  margin-left: 4%;
-  margin-top: 1.75%;
-  margin-bottom: -2.15%;
+  margin-bottom: -2%;
+  font-size: 3vw;
+  padding-right: 5%;
+  text-decoration: none;
+  margin-left: 3vw;
+  color: white;
 }
 
 .searchbar {
-  margin-left: 15%;
+  margin-top: 0.75%;
   padding-left: 2%;
+  position: fixed;
   height: 1.5vw;
   width: 40vw;
   border-radius: 0.25vw;
@@ -34,9 +37,24 @@ a {
 }
 
 .searchImg {
-  height: 1.25vw;
-  margin-left: 15.4%;
-  margin-top: 0.25%;
-  position: absolute;
+  height: 1.4vw;
+  margin-top: 1.09%;
+  position: fixed;
+  z-index: 2;
   color: grey;
+  padding-left: 7px;
+}
+
+.logout {
+  /* margin-left: 60%; */
+  /* margin-top: 2.5%; */
+  float: right;
+  font-size: 2.5vw;
+  text-decoration: none;
+  padding-right: 3vw;
+  color: white;
+}
+
+.box {
+  justify-content: grid;
 }
