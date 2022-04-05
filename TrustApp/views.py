@@ -12,6 +12,7 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 
+@login_required(login_url='login')
 def home_view(request:HttpRequest)->render:
     return render(request, 'index.html')
 
