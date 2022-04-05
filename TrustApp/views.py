@@ -17,7 +17,7 @@ def home_view(request:HttpRequest)->render:
     return render(request, 'index.html')
 
 def log_view(request:HttpRequest)->render:
-    return render(request,'logN.html')
+    return render(request,'login.html')
 
 
 def logoutUser(request):
@@ -25,16 +25,16 @@ def logoutUser(request):
     return redirect("login")
 
 def login_view(request):
-    if request.user.is_authenticated:
-        return redirect('')
-    else:
+    # if request.user.is_authenticated:
+    #     return redirect('')
+    # else:
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('')
+                return redirect(home_view)
             else:
                 messages.info(request, 'Username OR password is incorrect')
         context = {}
