@@ -40,3 +40,10 @@ a {
   position: absolute;
   color: grey;
 }
+
+.logbody {
+  padding: 20%;
+  align-self: center;
+  font-style: impact;
+  color:red;
+}
