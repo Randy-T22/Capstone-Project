@@ -21,6 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view),
     path("login", login_view, name="login"),
-    path("logout", logoutUser, name="logout")
+    path("logout", logoutUser, name="logout"),
+    path("deniedU", deniedUserTest),
+    path("deniedM", deniedManagerTest),
+    path("deniedA", deniedAdminTest)
 ]
 

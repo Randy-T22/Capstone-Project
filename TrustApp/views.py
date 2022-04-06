@@ -33,3 +33,12 @@ def login_view(request):
                 messages.info(request, 'Username OR password is incorrect')
         context = {}
         return render(request, 'login.html', context)
+
+def deniedUserTest(request):
+    return render(request, "denied(user).html")
+
+def deniedManagerTest(request):
+    return render(request, "denied(manager).html")
+
+def deniedAdminTest(request):
+    return render(request, "denied(admin).html")
