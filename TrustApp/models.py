@@ -18,6 +18,10 @@ class Expertise(models.Model):
 
 class Files(models.Model):
     fileName = models.TextField(null=False)
+    Url = models.URLField(null=False, default= 'Needs to add URL.')
+
+    def __str__(self):
+        return self.fileName
 
 class Log(models.Model):
     logDesc = models.TextField(null=False)
