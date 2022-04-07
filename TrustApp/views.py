@@ -13,7 +13,7 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 
 @login_required(login_url='login')
-def home_view(request) -> HttpResponse:
+def homeView(request) -> HttpResponse:
     return render(request, "index.html")
 
 
@@ -21,24 +21,24 @@ def logoutUser(request):
     logout(request)
     return redirect("login")
 
-def login_view(request):
+def loginUser(request):
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect(home_view)
+                return redirect(homeView)
             else:
                 messages.info(request, 'Username OR password is incorrect')
         context = {}
         return render(request, 'login.html', context)
 
-def deniedUserTest(request):
+def deniedUser(request) -> HttpResponse:
     return render(request, "denied(user).html")
 
-def deniedManagerTest(request):
+def deniedManager(request) -> HttpResponse:
     return render(request, "denied(manager).html")
 
-def deniedAdminTest(request):
+def deniedAdmin(request) -> HttpResponse:
     return render(request, "denied(admin).html")
