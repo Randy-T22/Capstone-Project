@@ -17,6 +17,14 @@
         placeholder="Search"
         aria-label="Search"
       />
+      <select name="Types" class="searchType">
+        <option value="1">Expertise</option>
+        <option value="2">Language</option>
+        <option value="3">Title</option>
+        <option value="4">Files</option>
+        <option value="5">Name</option>
+        <option value="6">Email</option>
+      </select>
       <a class="logout" href="{% url "logout" %}">Log Out</a>
   </nav>
   <body>
