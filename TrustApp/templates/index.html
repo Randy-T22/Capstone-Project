@@ -27,6 +27,11 @@
       </select>
       <a class="logout" href="{% url "logout" %}">Log Out</a>
   </nav>
+  <div class="bioBox">
+    <div class="name"><p>{{request.user.first_name}} {{request.user.last_name}}</p></div>
+    <div class="email"><p>{{request.user.email}}</p></div>
+    <div class="jobTitle"><p>{{request.user.profile.title}}</p></div>
+  </div>
   <body>
     <footer></footer>
   </body>
