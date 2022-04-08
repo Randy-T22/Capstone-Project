@@ -57,14 +57,14 @@ body {
 .bioBox {
   margin-top: 5%;
   margin-left: 0%;
-  background-color: rgb(247, 241, 241);
+  background-color: white;
   position: fixed;
   height: 10vw;
   width: 100%;
 }
 .name {
   margin-top: 1%;
-  margin-left: 10%;
+  margin-left: 5%;
   font-size: 2.5vw;
   position: fixed;
   color: black;
@@ -84,4 +84,57 @@ body {
   position: fixed;
   color: black;
   text-decoration: underline;
+}
+
+.skillsBox {
+  background-color: rgba(196, 196, 196, 0.144);
+  margin-top: 15%;
+  position: fixed;
+  height: 32.5vw;
+  width: 100%;
+}
+
+.expertiseTitle {
+  margin-left: 5%;
+  margin-top: 2%;
+  font-size: 2vw;
+}
+
+.expertiseBox {
+  background-color: white;
+  margin-top: 0%;
+  margin-left: 5%;
+  margin-right: 55%;
+  height: 22.5vw;
+  border-radius: 2vw;
+  border-style: solid;
+  border-color: black;
+}
+
+.expertise {
+  margin-top: 1.25%;
+  margin-left: 1%;
+  position: fixed;
+}
+
+.languageTitle {
+  margin-top: -27%;
+  margin-left: 55%;
+  font-size: 2vw;
+}
+
+.languagesBox {
+  background-color: white;
+  margin-left: 55%;
+  margin-right: 5%;
+  height: 22.5vw;
+  border-radius: 2vw;
+  border-style: solid;
+  border-color: black;
+}
+
+.languages {
+  margin-top: 1.25%;
+  margin-left: 1%;
+  position: fixed;
 }
