@@ -42,3 +42,6 @@ def deniedManager(request) -> HttpResponse:
 
 def deniedAdmin(request) -> HttpResponse:
     return render(request, "denied(admin).html")
+
+def findUsers(request) -> HttpRequest:
+    return render(request, "search.html")

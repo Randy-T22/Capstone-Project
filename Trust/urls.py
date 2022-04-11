@@ -22,6 +22,7 @@ urlpatterns = [
     path('', homeView, name="userProfile"),
     path("login", loginUser, name="login"),
     path("logout", logoutUser, name="logout"),
+    path("search", findUsers, name = "search"),
     path("userDenied", deniedUser, name="userAccessDenied"),
     path("managerDenied", deniedManager, name="managerAccessDenied"),
     path("adminDenied", deniedAdmin, name="adminAccessDenied")
