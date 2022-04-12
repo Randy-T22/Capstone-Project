@@ -109,12 +109,14 @@ body {
   border-radius: 2vw;
   border-style: solid;
   border-color: black;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
-.expertise {
-  margin-top: 1.25%;
-  margin-left: 1%;
-  position: fixed;
+.skill {
+  font-size: 2.5vw;
+  margin-top: 0%;
+  margin-left: 3%;
 }
 
 .languageTitle {
@@ -131,10 +133,44 @@ body {
   border-radius: 2vw;
   border-style: solid;
   border-color: black;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .languages {
   margin-top: 1.25%;
   margin-left: 1%;
   position: fixed;
+}
+
+.fileArea {
+  margin-top: 47%;
+  margin-left: 0%;
+  background-color: white;
+  position: fixed;
+  height: 11.12vw;
+  width: 100%;
+}
+
+.fileTitle {
+  margin-left: 5%;
+  font-size: 2vw;
+}
+
+.filesBox {
+  background-color: rgba(196, 196, 196, 0.144);
+  height: 4vw;
+  margin-top: -1.25%;
+  border-radius: 2vw;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-style: solid;
+  border-color: black;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.file {
+  margin-left: 1.5%;
+  font-size: 1.5vw;
 }
