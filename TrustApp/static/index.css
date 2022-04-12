@@ -44,6 +44,16 @@ body {
   margin-left: 17%;
   margin-top: 3.35%;
 }
+.update {
+  margin-left: 42.5%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
+}
 .logout {
   margin-left: 60%;
   margin-top: 1%;
