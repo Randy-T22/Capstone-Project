@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Trust</title>
-    <link href="static/index.css" rel="stylesheet" type="text/css" />
+    <link href="static/search.css" rel="stylesheet" type="text/css" />
   </head>
   <nav class="navbar">
     <a class="title" href="">Trust</a>
@@ -27,19 +27,21 @@
       </select>
       <a class="logout" href="{% url "logout" %}">Log Out</a>
   </nav>
-  <div class="bioBox">
-    <div class="name"><p>{{request.user.first_name}} {{request.user.last_name}}</p></div>
-    <div class="email"><p>{{request.user.email}}</p></div>
-    <div class="jobTitle"><p>{{request.user.profile.title}}</p></div>
-  </div>
-  <div class="skillsBox">
-    <p class="expertiseTitle">Expertise</p>
-    <div class="expertiseBox">
-      <p class="expertise">{{request.user.profile.Expertise}}</p>
+  <div class="profdisplay">
+    <div class="bioBox">
+      <div class="name"><p>{{request.user.first_name}} {{request.user.last_name}}</p></div>
+      <div class="email"><p>{{request.user.email}}</p></div>
+      <div class="jobTitle"><p>{{request.user.profile.title}}</p></div>
     </div>
-    <p class="languageTitle">Languages</p>
-    <div class="languagesBox">
-      <p class="expertise">{{request.user.profile.Language}}</p>
+    <div class="skillsBox">
+      <p class="expertiseTitle">Expertise</p>
+      <div class="expertiseBox">
+        <p class="expertise">{{request.user.profile.Expertise}}</p>
+      </div>
+      <p class="languageTitle">Languages</p>
+      <div class="languagesBox">
+        <p class="expertise">{{request.user.profile.Language}}</p>
+      </div>
     </div>
   </div>
   <body>

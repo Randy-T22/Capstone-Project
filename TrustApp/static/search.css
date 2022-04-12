@@ -60,7 +60,7 @@ body {
   background-color: white;
   position: fixed;
   height: 10vw;
-  width: 100%;
+  width: 50%;
 }
 .name {
   margin-top: 1%;
@@ -91,7 +91,7 @@ body {
   margin-top: 15%;
   position: fixed;
   height: 32.5vw;
-  width: 100%;
+  width: 50%;
 }
 
 .expertiseTitle {
