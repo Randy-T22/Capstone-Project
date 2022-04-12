@@ -35,11 +35,17 @@
   <div class="skillsBox">
     <p class="expertiseTitle">Expertise</p>
     <div class="expertiseBox">
-      <p class="expertise">{{request.user.profile.expertise.all}}</p>
+      <p class="expertise">
+        {%for e in request.user.profile.expertise.all%}
+          * {{e}} <br>
+        {%endfor%}</p>
     </div>
     <p class="languageTitle">Languages</p>
     <div class="languagesBox">
-      <p class="expertise">{{request.user.profile.language.all}}</p>
+      <p class="expertise">
+        {%for e in request.user.profile.language.all%}
+          * {{e}} <br>
+        {%endfor%}</p></p>
     </div>
   </div>
   <body>
