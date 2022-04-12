@@ -1,3 +1,4 @@
+from tkinter import N
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -39,7 +40,7 @@ class Profile(models.Model):
     expertise = models.ManyToManyField('Expertise')
     title = models.ForeignKey(Title, on_delete=models.PROTECT)
     language = models.ManyToManyField('Language')
-    files = models.ManyToManyField('Files', blank=True)
+    files = models.ManyToManyField('Files')
 
     def __str__(self):
         return self.user.username
