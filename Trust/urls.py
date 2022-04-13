@@ -25,6 +25,7 @@ urlpatterns = [
     path("search", findUsers, name = "search"),
     path("userDenied", deniedUser, name="userAccessDenied"),
     path("managerDenied", deniedManager, name="managerAccessDenied"),
-    path("adminDenied", deniedAdmin, name="adminAccessDenied")
+    path("adminDenied", deniedAdmin, name="adminAccessDenied"), 
+    path("updatePassword", updatePassword, name="password")
 ]
 
