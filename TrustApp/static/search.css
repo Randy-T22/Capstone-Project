@@ -64,23 +64,23 @@ body {
 }
 .name {
   margin-top: 1%;
-  margin-left: 5%;
-  font-size: 2.5vw;
+  margin-left: 3%;
+  font-size: 2vw;
   position: fixed;
   color: black;
 }
 .email {
   margin-top: 1%;
-  margin-left: 65%;
+  margin-left: 33%;
   letter-spacing: 0vw;
-  font-size: 2.5vw;
+  font-size: 2vw;
   position: fixed;
   color: black;
 }
 .jobTitle {
   margin-top: 1%;
-  margin-left: 38.5%;
-  font-size: 2.5vw;
+  margin-left: 20%;
+  font-size: 2vw;
   position: fixed;
   color: black;
   text-decoration: underline;
@@ -88,10 +88,12 @@ body {
 
 .skillsBox {
   background-color: rgba(196, 196, 196, 0.144);
-  margin-top: 15%;
-  position: fixed;
+  margin-top: 25%;
+  /* position: fixed; */
   height: 32.5vw;
-  width: 50%;
+  width: 61vw;
+  float: right;
+  
 }
 
 .expertiseTitle {
@@ -118,7 +120,7 @@ body {
 }
 
 .languageTitle {
-  margin-top: -27%;
+  margin-top: -45%;
   margin-left: 55%;
   font-size: 2vw;
 }
@@ -137,4 +139,16 @@ body {
   margin-top: 1.25%;
   margin-left: 1%;
   position: fixed;
+}
+
+
+
+.leftside {
+  float: left;
+  /* border: 5px solid #22CECA; */
+  border: 5px solid #68E2E0;
+  margin-top: 6%;
+  margin-left: 2%;
+  height: 41vw;
+  width: 30vw;
 }
