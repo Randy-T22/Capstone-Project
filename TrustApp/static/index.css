@@ -106,16 +106,16 @@ body {
 
 .expertiseTitle {
   margin-left: 5%;
-  margin-top: 2%;
+  margin-top: 1.5%;
   font-size: 2vw;
 }
 
 .expertiseBox {
   background-color: white;
-  margin-top: 0%;
+  margin-top: -1%;
   margin-left: 5%;
   margin-right: 55%;
-  height: 22.5vw;
+  height: 20vw;
   border-radius: 2vw;
   border-style: solid;
   border-color: black;
@@ -130,7 +130,7 @@ body {
 }
 
 .languageTitle {
-  margin-top: -27%;
+  margin-top: -23.5%;
   margin-left: 55%;
   font-size: 2vw;
 }
@@ -138,8 +138,9 @@ body {
 .languagesBox {
   background-color: white;
   margin-left: 55%;
+  margin-top: -1%;
   margin-right: 5%;
-  height: 22.5vw;
+  height: 20vw;
   border-radius: 2vw;
   border-style: solid;
   border-color: black;
@@ -154,11 +155,11 @@ body {
 }
 
 .fileArea {
-  margin-top: 47%;
+  margin-top: 43%;
   margin-left: 0%;
   background-color: white;
   position: fixed;
-  height: 11.12vw;
+  height: 15.15vw;
   width: 100%;
 }
 
@@ -169,7 +170,7 @@ body {
 
 .filesBox {
   background-color: rgba(196, 196, 196, 0.144);
-  height: 4vw;
+  height: 7vw;
   margin-top: -1.25%;
   border-radius: 2vw;
   margin-left: 5%;
