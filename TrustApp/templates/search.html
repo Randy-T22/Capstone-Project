@@ -29,6 +29,9 @@
   </nav>
   <div class = "leftside">
     <p>hello</p>
+    {% comment %} {%for e in request.user.profile%}
+            * {{e}} <br>
+    {%endfor%}</p></p> {% endcomment %}
   </div>
   <div class="profdisplay">
     <div class="bioBox">
@@ -39,12 +42,28 @@
     <div class="skillsBox">
       <p class="expertiseTitle">Expertise</p>
       <div class="expertiseBox">
-        <p class="expertise">{{request.user.profile.Expertise}}</p>
+        <p class="skill">
+          {%for e in request.user.profile.expertise.all%}
+            * {{e}} <br>
+          {%endfor%}</p>
+        {% comment %} <p class="expertise">{{request.user.profile.Expertise}}</p> {% endcomment %}
       </div>
       <p class="languageTitle">Languages</p>
       <div class="languagesBox">
-        <p class="expertise">{{request.user.profile.Language}}</p>
+        <p class="skill">
+          {%for e in request.user.profile.language.all%}
+            * {{e}} <br>
+          {%endfor%}</p></p>
+        {% comment %} <p class="expertise">{{request.user.profile.Language}}</p> {% endcomment %}
       </div>
+      <div class="fileArea">
+        <p class="fileTitle">Files</p>
+        <div class="filesBox">
+          <p class="file">
+            {%for e in request.user.profile.files.all%}
+                * <a href="{{e.Url}}" class="fileLink">{{e.fileName}}</a> <br>
+            {%endfor%}</p></p>
+        </div>
     </div>
   </div>
   <body>

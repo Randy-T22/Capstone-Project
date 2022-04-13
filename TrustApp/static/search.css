@@ -108,6 +108,8 @@ body {
   margin-left: 5%;
   margin-right: 55%;
   height: 22.5vw;
+  min-height: 50px;
+  min-width: 200px;
   border-radius: 2vw;
   border-style: solid;
   border-color: black;
@@ -141,6 +143,37 @@ body {
   position: fixed;
 }
 
+.fileArea {
+  margin-top: 3%;
+  margin-left: 0%;
+  background-color: white;
+  position: fixed;
+  height: 15.15vw;
+  width: 60%;
+}
+
+.fileTitle {
+  margin-left: 5%;
+  font-size: 2vw;
+}
+
+.filesBox {
+  background-color: rgba(196, 196, 196, 0.144);
+  height: 7vw;
+  margin-top: -1.25%;
+  border-radius: 2vw;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-style: solid;
+  border-color: black;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.file {
+  margin-left: 1.5%;
+  font-size: 1.5vw;
+}
 
 
 .leftside {
@@ -149,6 +182,7 @@ body {
   border: 5px solid #68E2E0;
   margin-top: 6%;
   margin-left: 2%;
-  height: 41vw;
+  height: 52vw;
+  
   width: 30vw;
 }
