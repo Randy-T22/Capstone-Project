@@ -54,7 +54,7 @@
   <div class="filesBox">
     <p class="file">
       {%for e in request.user.profile.files.all%}
-          * <a href="${{e.Url}}" class="fileLink">{{e.fileName}}</a> <br>
+          * <a href="{{e.Url}}" class="fileLink">{{e.fileName}}</a> <br>
       {%endfor%}</p></p>
   </div>
 </div>

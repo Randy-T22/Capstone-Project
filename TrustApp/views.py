@@ -39,6 +39,7 @@ def loginUser(request):
         return render(request, 'login.html', context)
 
 def deniedUser(request) -> HttpResponse:
+    logout(request)
     return render(request, "denied(user).html")
 
 def deniedManager(request) -> HttpResponse:
@@ -50,7 +51,7 @@ def deniedAdmin(request) -> HttpResponse:
 def findUsers(request) -> HttpRequest:
     return render(request, "search.html")
 
-
+@login_required(login_url='login')
 def updatePassword(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
