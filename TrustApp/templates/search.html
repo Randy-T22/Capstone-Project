@@ -27,11 +27,13 @@
       </select>
       <a class="logout" href="{% url "logout" %}">Log Out</a>
   </nav>
-  <div class = "leftside">
-    <p>hello</p>
-    {% comment %} {%for e in request.user.profile%}
-            * {{e}} <br>
-    {%endfor%}</p></p> {% endcomment %}
+  <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
+    <div class = "employeeBlock">
+      <p>. . hello</p>
+      {% comment %} {%for e in request.user.profile%}
+              * {{e}} <br>
+      {%endfor%}</p></p> {% endcomment %}
+    </div>
   </div>
   <div class="profdisplay">
     <div class="bioBox">
@@ -66,7 +68,11 @@
         </div>
     </div>
   </div>
+  
   <body>
-    <footer></footer>
+    
   </body>
+  <footer>
+    <button>WIP</button>
+  </footer>
 </html>

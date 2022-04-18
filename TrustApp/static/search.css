@@ -5,6 +5,7 @@ body {
   margin: 0px;
   display: flex;
   justify-content: space-between;
+  background-image: url("https://www.bing.com/images/search?q=basic+backgrounds&id=BA6C03B3E9957AFCB592894E010002779CEDEEF6&FORM=IQFRBA");
 }
 .navbar {
   background-color: rgb(130, 176, 179);
@@ -178,11 +179,21 @@ body {
 
 .leftside {
   float: left;
-  /* border: 5px solid #22CECA; */
-  border: 5px solid #68E2E0;
+  border: 5px solid rgba(196, 196, 196, 0.144);
   margin-top: 6%;
   margin-left: 2%;
   height: 52vw;
-  
+  border-radius: 12%;
   width: 30vw;
+}
+
+.employeeBlock {
+  border: 5px solid rgba(196, 196, 196, 0.144);
+  height: 60px;
+  width: 70px;
+
+}
+
+footer {
+  /* background-color: rgb(130, 176, 179); */
 }
