@@ -1,0 +1,25 @@
+html,
+body {
+  margin: 0px;
+  background-color: rgb(130, 176, 179);
+}
+
+.formSpace {
+  background-color: white;
+  margin-top: 17.5%;
+  margin-left: 25%;
+  margin-right: 25%;
+  height: 25vw;
+  border-radius: 2vw;
+  background-color: rgba(248, 245, 245, 0.705);
+}
+
+.form1 {
+  margin-top: 15%;
+  margin-left: 2.5%;
+  font-size: 2.12vw;
+}
+
+.saveButton {
+  margin-left: 2.5%;
+}
