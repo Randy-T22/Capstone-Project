@@ -28,12 +28,13 @@
       <a class="logout" href="{% url "logout" %}">Log Out</a>
   </nav>
   <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
+    {%for e in object_list %}
     <div class = "employeeBlock">
-      <p>. . hello</p>
-      {% comment %} {%for e in request.user.profile%}
-              * {{e}} <br>
-      {%endfor%}</p></p> {% endcomment %}
+      {% comment %} <p>. . hello</p> {% endcomment %}
+        {{e}}
+      </p>
     </div>
+    {%endfor%}
   </div>
   <div class="profdisplay">
     <div class="bioBox">
