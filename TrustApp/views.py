@@ -10,6 +10,8 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.models import User
+
 
 
 
@@ -55,7 +57,11 @@ def deniedAdmin(request) -> HttpResponse:
     return render(request, "denied(admin).html")
 
 def findUsers(request) -> HttpRequest:
-    return render(request, "search.html")
+    context = {'usrs': User.objects.all()}
+
+    return render(request, "search.html", context)
+
+
 
 @login_required(login_url='login')
 def updatePassword(request):

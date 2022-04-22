@@ -11,12 +11,14 @@
     <a class="title" href="">Trust</a>
     <img class="searchbar-img">
       <img class="searchImg" src="static/images/search.png" />
-      <input
+      <!-- <input
         type="text"
         class="searchbar"
         placeholder="Search"
         aria-label="Search"
-      />
+      /> -->
+      <form action="search/." type="get">
+        <input name="q" type="text" placeholder="Search...">
       <select name="Types" class="searchType">
         <option value="1">Expertise</option>
         <option value="2">Language</option>
@@ -25,14 +27,21 @@
         <option value="5">Name</option>
         <option value="6">Email</option>
       </select>
+      <button type="submit">Search</button>
+    </form>
       <a class="logout" href="{% url "logout" %}">Log Out</a>
   </nav>
   <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
     <div class = "employeeBlock">
       <p>. . hello</p>
-      {% comment %} {%for e in request.user.profile%}
-              * {{e}} <br>
-      {%endfor%}</p></p> {% endcomment %}
+    </p>{%for e in usrs%}
+              <div class="usr">
+              * {{e.first_name}} {{e.last_name}}<br>
+              <div class="lang">
+              * {%for lang in e.profile.language.all%} {{lang}} , {%endfor%}
+            </div>
+            </div>
+      {%endfor%}</p> 
     </div>
   </div>
   <div class="profdisplay">
