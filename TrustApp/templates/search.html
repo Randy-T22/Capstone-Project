@@ -1,5 +1,7 @@
 {% load static %}
+
 <!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -28,7 +30,7 @@
       <a class="logout" href="{% url "logout" %}">Log Out</a>
   </nav>
   <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
-    {%for e in object_list %}
+    {%for e in users %}
     <div class = "employeeBlock">
       {% comment %} <p>. . hello</p> {% endcomment %}
         {{e}}

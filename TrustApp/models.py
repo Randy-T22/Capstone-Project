@@ -47,5 +47,3 @@ class Profile(models.Model):
         return self.user.username
 
 
-def get_all(self):
-    return User.objects.all()

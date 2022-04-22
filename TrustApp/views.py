@@ -15,6 +15,7 @@ from django.contrib.auth import get_user_model
 
 
 
+
 # Create your views here.
 
 @login_required(login_url='login')
@@ -75,3 +76,9 @@ def updatePassword(request):
         'form': form
     })
 
+def getthepeeps(request,type,prof):
+    User = get_user_model()
+    users = User.objects.all()
+    context = {'users': users}
+    print(users)
+    return render(request, "search.html", context)
