@@ -32,6 +32,7 @@
       <a class="logout" href="{% url "logout" %}">Log Out</a>
   </nav>
   <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
+    {%for e in object_list %}
     <div class = "employeeBlock">
       <p>. . hello</p>
     </p>{%for e in usrs%}
@@ -43,6 +44,7 @@
             </div>
       {%endfor%}</p> 
     </div>
+    {%endfor%}
   </div>
   <div class="profdisplay">
     <div class="bioBox">
