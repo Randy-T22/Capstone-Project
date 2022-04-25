@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="fileList">
+        <form method="post" action="" name="fileList">
+            {%for i in files%}
+                <div class="indFile"><a href="{{i.Url}}" target="_blank">{{i.fileName}}</a><input type="checkbox" name="file{{i.id}}" id="file{{i.id}}"></div>
+
+            {%endfor%}
+            <button type="submit" name="fileList">Submit</button>
+        </form>
+    </div>
+    <div class="newFile">
+        <form action="" method="post" name="newFile">
+            <input type="text">
+            <input type="url">
+            <button type="submit" name="fileAdd">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>

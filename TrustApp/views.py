@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
+from .models import *
 
 from django.contrib.auth import get_user_model
 
@@ -90,4 +91,6 @@ def getthepeeps(request,type,prof):
     return render(request, "search.html", context)
 
 def filesView(request):
-    return render(request, 'files.html')
+    files = Files.objects.all()
+    context = {"files": files}
+    return render(request, 'files.html', context)
