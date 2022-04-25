@@ -14,38 +14,16 @@ body {
   background-size: auto;
   height: 5vw;
 }
-.title {
+.indexLink {
   margin-top: 1%;
   position: fixed;
   font-size: 2.5vw;
   text-decoration: none;
   margin-left: 3vw;
-  color: white;
+  color: black;
 }
-.searchbar {
-  margin-top: 1.5%;
-  padding-left: 2%;
-  position: fixed;
-  margin-left: 17%;
-  height: 1.5vw;
-  width: 40vw;
-  border-radius: 0.25vw;
-  border-color: black;
-}
-.searchImg {
-  height: 1.4vw;
-  margin-top: 1.75%;
-  margin-left: 17.45%;
-  position: fixed;
-  z-index: 2;
-  color: grey;
-}
-.searchType {
-  margin-left: 17%;
-  margin-top: 3.35%;
-}
-.update {
-  margin-left: 42.5%;
+.createUserLink {
+  margin-left: 13%;
   position: fixed;
   margin-top: 1%;
   font-size: 2.5vw;
@@ -54,7 +32,37 @@ body {
   padding-right: 3vw;
   color: white;
 }
-.logout {
+.adminLink {
+  margin-left: 30%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
+}
+.searchLink {
+  margin-left: 54%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
+}
+.updatePasswordLink {
+  margin-left: 66%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
+}
+.logoutLink {
   margin-left: 60%;
   margin-top: 1%;
   float: right;
