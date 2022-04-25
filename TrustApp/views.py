@@ -88,3 +88,6 @@ def getthepeeps(request,type,prof):
     context = {'users': users}
     print(users)
     return render(request, "search.html", context)
+
+def filesView(request):
+    return render(request, 'files.html')

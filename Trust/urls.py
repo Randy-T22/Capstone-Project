@@ -26,6 +26,7 @@ urlpatterns = [
     path("userDenied", deniedUser, name="userAccessDenied"),
     path("managerDenied", deniedManager, name="managerAccessDenied"),
     path("adminDenied", deniedAdmin, name="adminAccessDenied"), 
-    path("updatePassword", updatePassword, name="password")
+    path("updatePassword", updatePassword, name="password"),
+    path("addFiles", filesView, name='addFiles')
 ]
 
