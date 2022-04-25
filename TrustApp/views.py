@@ -1,3 +1,5 @@
+from fileinput import filename
+from hashlib import new
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http.response import HttpResponse
 from django.http.request import HttpRequest
@@ -93,4 +95,12 @@ def getthepeeps(request,type,prof):
 def filesView(request):
     files = Files.objects.all()
     context = {"files": files}
+    if request.method == 'POST':
+        if 'fileAdd' in request.POST:
+            fileName = request.POST['fileName']
+            Url = request.POST['Url']
+            f = Files.objects.create(fileName = fileName, Url = Url)
+            f.save()    
+            us = request.user.profile.files
+            us.add(f)    
     return render(request, 'files.html', context)
