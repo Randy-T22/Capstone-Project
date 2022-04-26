@@ -87,7 +87,7 @@ def getthepeeps(request,type,prof):
     User = get_user_model()
     users = User.objects.all()
     context = {'users': users}
-    print(users)
+    
     return render(request, "search.html", context)
 
 def filesView(request):

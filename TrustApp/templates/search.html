@@ -13,14 +13,14 @@
     <a class="title" href="">Trust</a>
     <img class="searchbar-img">
       <img class="searchImg" src="static/images/search.png" />
-      <!-- <input
+      <input
         type="text"
         class="searchbar"
         placeholder="Search"
         aria-label="Search"
-      /> -->
+      
       <form action="search/." type="get">
-        <input name="q" type="text" placeholder="Search...">
+        {% comment %} <input name="q" type="text" placeholder="Search..."> {% endcomment %}
       <select name="Types" class="searchType">
         <option value="1">Expertise</option>
         <option value="2">Language</option>
@@ -36,15 +36,13 @@
   <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
     {%for e in users %}
     <div class = "employeeBlock">
-      <p>. . hello</p>
-    </p>{%for e in usrs%}
+      {% comment %} <p>. . hello</p> {% endcomment %}
               <div class="usr">
-              * {{e.first_name}} {{e.last_name}}<br>
+              <p style="float:left;"> {{e.first_name}} {{e.last_name}}</p><pstyle="float:right;">{{e.profile.title}}</p>
               <div class="lang">
-              * {%for lang in e.profile.language.all%} {{lang}} , {%endfor%}
+              {% comment %} * {%for lang in e.profile.language.all%} {{lang}} , {%endfor%} {% endcomment %}
             </div>
             </div>
-      {%endfor%}</p> 
     </div>
     {%endfor%}
   </div>
