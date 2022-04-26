@@ -10,17 +10,24 @@
 
     <div class="fileList">
         <form method="post" action="" name="fileList">
+            {% csrf_token %}
             {%for i in files%}
-                <div class="indFile"><a href="{{i.Url}}" target="_blank">{{i.fileName}}</a><input type="checkbox" name="file{{i.id}}" id="file{{i.id}}"></div>
+                <div class="indFile"><a href="{{i.Url}}" target="_blank">{{i.fileName}}</a>
+                    <input type="checkbox" 
+                    {%if request.user.profile.files.i.exist%} checked {%endif%}
+                    name="file{{i.id}}" id="file{{i.id}}"></div>
 
             {%endfor%}
             <button type="submit" name="fileList">Submit</button>
         </form>
     </div>
+
+    
     <div class="newFile">
-        <form action="" method="post" name="newFile">
-            <input type="text">
-            <input type="url">
+        <form action="" method="post" name="fileAdd">
+            {% csrf_token %}
+            <p class="fName">File Name </p><input type="text" name="fileName">
+            <p class="urlname">Url (include http://) </p><input type="url" name="Url">
             <button type="submit" name="fileAdd">Submit</button>
         </form>
     </div>

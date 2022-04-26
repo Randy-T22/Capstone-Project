@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/createUser.css" rel="stylesheet" type="text/css" />
+    <title>Document</title>
+</head>
+<nav class="navbar">
+    <a class="indexLink" href="{% url "userProfile" %}">Trust</a>
+    <a class="createUserLink" href="{% url "createUser" %}">Create User</a>
+    <a class="adminLink" href="{% url "admin:index" %}">Admin</a>
+    <a class="searchLink" href-"{% url "search" %}"> Search</a>
+    <a class="updatePasswordLink" href="{% url "password" %}">Update Password</a>
+    <a class="logoutLink" href="{% url "logout" %}">Log Out</a>
+  </nav>
+<body>
+  <form class="form" name="form" action="{% url "createUser" %}" method="POST"> {% csrf_token %}
+    <input type="text" placeholder="First Name" name="firstName" />
+    <input type="text" placeholder="Last Name" name="lastName" />
+    <input type="text" placeholder="Email Address" name="email" />
+    <select>
+    {% for title in allTitles %}
+    <option> {{title}}</option>
+    {% endfor %}
+    </select>
+    <select>
+      <option>Employee</option>
+      <option>Manager</option>
+      <option>Admin</option>
+    </select>
+    <button type="submit" value="POST" class="saveButton">Save changes</button>
+</body>
+</html>

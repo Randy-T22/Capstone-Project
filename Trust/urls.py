@@ -18,15 +18,15 @@ from django.urls import path
 from TrustApp.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name="admin"),
     path('', homeView, name="userProfile"),
     path("login", loginUser, name="login"),
     path("logout", logoutUser, name="logout"),
-    path("search+<type>+<prof>", getthepeeps, name = "search"),
+    path("search", getthepeeps, name = "search"),
     path("userDenied", deniedUser, name="userAccessDenied"),
     path("managerDenied", deniedManager, name="managerAccessDenied"),
     path("adminDenied", deniedAdmin, name="adminAccessDenied"), 
     path("updatePassword", updatePassword, name="password"),
-    path("addFiles", filesView, name='addFiles')
+    path("addFiles", filesView, name='addFiles'),
+    path("createUser", createUser, name="createUser")
 ]
-
