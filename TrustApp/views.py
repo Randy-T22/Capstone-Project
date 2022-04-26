@@ -93,8 +93,9 @@ def getthepeeps(request,type,prof):
     return render(request, "search.html", context)
 
 def filesView(request):
+    usr = request.user
     files = Files.objects.all()
-    context = {"files": files}
+    context = {"files": files, 'usr': usr}
     if request.method == 'POST':
         if 'fileAdd' in request.POST:
             fileName = request.POST['fileName']
