@@ -14,6 +14,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 from .models import *
+from .forms import *
 
 from django.contrib.auth import get_user_model
 
@@ -104,3 +105,29 @@ def filesView(request):
             us = request.user.profile.files
             us.add(f)    
     return render(request, 'files.html', context)
+
+@login_required(login_url='login')
+def createUser(request):
+    allTitles=Title.objects.all()
+    if request.POST:
+        form = NewEmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect(homeView)
+    context = {'form':NewEmployeeForm, 'allTitles':allTitles}
+    return render(request, 'createUser.html', context)
+
+# def createUser(request) -> HttpResponse:
+#     form = NewEmployeeForm
+#     if request.method == "POST":
+#         form = NewEmployeeForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             first=form.cleaned_data.get('firstName')
+#             last=form.cleaned_data.get('lastName')
+#             user = authenticate(first=first, last=last)
+#             messages.success(request, "Account was created for " + first + ' ' + last )
+#             return redirect(homeView)
+#     allTitles=Title.objects.all()
+#     context = {'form':form, 'allTitles':allTitles}
+#     return render(request, "createUser.html", context)
