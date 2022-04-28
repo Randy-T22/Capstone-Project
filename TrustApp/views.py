@@ -12,7 +12,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from .models import *
 from .forms import *
 
@@ -118,17 +118,21 @@ def createUser(request):
     context = {'form':NewEmployeeForm, 'allTitles':allTitles}
     return render(request, 'createUser.html', context)
 
-# def createUser(request) -> HttpResponse:
-#     form = NewEmployeeForm
-#     if request.method == "POST":
-#         form = NewEmployeeForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             first=form.cleaned_data.get('firstName')
-#             last=form.cleaned_data.get('lastName')
-#             user = authenticate(first=first, last=last)
-#             messages.success(request, "Account was created for " + first + ' ' + last )
-#             return redirect(homeView)
-#     allTitles=Title.objects.all()
-#     context = {'form':form, 'allTitles':allTitles}
-#     return render(request, "createUser.html", context)
+def createUser(request) -> HttpResponse:
+    groups = ['Manager', 'Admin', 'Employee', 'Inactive']
+    if request.method == "POST":
+        first_name, last_name, email, group, title = request.POST['firstName',
+         'lastName', 'email', 'group', 'title']
+        username = email
+        password = 'OneTwoThree'
+        User.objects.create(
+             username = username, password = password
+        )
+        usr = User.objects.get(username == username)
+        usr.first_name = first_name
+        usr.last_name = last_name
+        usr.groups.add(group)
+        usr.title = title
+    allTitles=Title.objects.all()
+    context = {'groups':groups, 'allTitles':allTitles}
+    return render(request, "createUser.html", context)
