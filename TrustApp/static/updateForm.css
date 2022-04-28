@@ -1,7 +1,77 @@
 html,
 body {
+  width: 100%;
+  height: 100%;
   margin: 0px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(161, 179, 180);
+}
+.navbar {
   background-color: rgb(130, 176, 179);
+  width: 100%;
+  color: white;
+  position: fixed;
+  background-size: auto;
+  height: 5vw;
+}
+.indexLink {
+  margin-top: 1%;
+  position: fixed;
+  font-size: 2.5vw;
+  text-decoration: none;
+  margin-left: 3vw;
+  color: white;
+}
+.createUserLink {
+  margin-left: 13%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
+}
+.adminLink {
+  margin-left: 30%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
+}
+.searchLink {
+  margin-left: 54%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
+}
+.updatePasswordLink {
+  margin-left: 66%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: black;
+}
+.logoutLink {
+  margin-left: 60%;
+  margin-top: 1%;
+  float: right;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
 }
 
 .formSpace {
@@ -15,7 +85,7 @@ body {
 }
 
 .form1 {
-  margin-top: 15%;
+  margin-top: 7%;
   margin-left: 2.5%;
   font-size: 2.12vw;
 }

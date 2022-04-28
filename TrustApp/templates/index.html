@@ -39,6 +39,7 @@
   </div>
   <div class="fileArea">
   <p class="fileTitle">Files</p>
+  <a href="{% url "addFiles" %}" class="addFiles">Add Files</a>
   <div class="filesBox">
     <p class="file">
       {%for e in request.user.profile.files.all%}
