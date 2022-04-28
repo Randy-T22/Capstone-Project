@@ -11,7 +11,7 @@
     <a class="indexLink" href="">Trust</a>
     <a class="createUserLink" href="{% url "createUser" %}">Create User</a>
     <a class="adminLink" href="{% url "admin:index" %}">Admin</a>
-    <a class="searchLink" href-"{% url "search" %}"> Search</a>
+    <a class="searchLink" href= "search+expertise+therapist"> Search</a>
     <a class="updatePasswordLink" href="{% url "password" %}">Update Password</a>
     <a class="logoutLink" href="{% url "logout" %}">Log Out</a>
   </nav>
@@ -39,6 +39,7 @@
   </div>
   <div class="fileArea">
   <p class="fileTitle">Files</p>
+  <a href="{% url "addFiles" %}" class="addFiles">Add Files</a>
   <div class="filesBox">
     <p class="file">
       {%for e in request.user.profile.files.all%}

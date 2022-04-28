@@ -198,14 +198,22 @@ body {
 }
 
 .fileTitle {
+  margin-bottom: -2.3%;
   margin-left: 5%;
   font-size: 2vw;
+}
+
+.addFiles {
+  margin-left: 85%;
+  font-size: 2vw;
+  text-decoration: underline;
+  color: black;
 }
 
 .filesBox {
   background-color: rgba(196, 196, 196, 0.144);
   height: 7vw;
-  margin-top: -1.25%;
+  margin-top: 1%;
   border-radius: 2vw;
   margin-left: 5%;
   margin-right: 5%;

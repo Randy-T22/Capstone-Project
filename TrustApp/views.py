@@ -86,25 +86,24 @@ def updatePassword(request):
         'form': form
     })
 
-def getthepeeps(request,type,prof):
+def getUsers(request,type,prof):
     User = get_user_model()
     users = User.objects.all()
     context = {'users': users}
-    print(users)
+    
     return render(request, "search.html", context)
 
 def filesView(request):
-    usr = request.user
     files = Files.objects.all()
-    context = {"files": files, 'usr': usr}
+    context = {"files": files}
     if request.method == 'POST':
         if 'fileAdd' in request.POST:
             fileName = request.POST['fileName']
             Url = request.POST['Url']
             f = Files.objects.create(fileName = fileName, Url = Url)
-            f.save()    
+            f.save()
             us = request.user.profile.files
-            us.add(f)    
+            us.add(f)
     return render(request, 'files.html', context)
 
 @login_required(login_url='login')

@@ -9,81 +9,107 @@
     <title>Trust</title>
     <link href="static/search.css" rel="stylesheet" type="text/css" />
   </head>
-  <nav class="navbar">
-    <a class="title" href="">Trust</a>
-    <img class="searchbar-img">
-      <img class="searchImg" src="static/images/search.png" />
-      <!-- <input
-        type="text"
-        class="searchbar"
-        placeholder="Search"
-        aria-label="Search"
-      /> -->
-      <form action="search/." type="get">
-        <input name="q" type="text" placeholder="Search...">
-      <select name="Types" class="searchType">
-        <option value="1">Expertise</option>
-        <option value="2">Language</option>
-        <option value="3">Title</option>
-        <option value="4">Files</option>
-        <option value="5">Name</option>
-        <option value="6">Email</option>
-      </select>
-      <button type="submit">Search</button>
-    </form>
-      <a class="logout" href="{% url "logout" %}">Log Out</a>
-  </nav>
-  <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
-    {%for e in users %}
-    <div class = "employeeBlock">
-      <p>. . hello</p>
-    </p>{%for e in usrs%}
-              <div class="usr">
-              * {{e.first_name}} {{e.last_name}}<br>
-              <div class="lang">
-              * {%for lang in e.profile.language.all%} {{lang}} , {%endfor%}
-            </div>
-            </div>
-      {%endfor%}</p> 
-    </div>
-    {%endfor%}
-  </div>
-  <div class="profdisplay">
-    <div class="bioBox">
-      <div class="name"><p>{{request.user.first_name}} {{request.user.last_name}}</p></div>
-      <div class="email"><p>{{request.user.email}}</p></div>
-      <div class="jobTitle"><p>{{request.user.profile.title}}</p></div>
-    </div>
-    <div class="skillsBox">
-      <p class="expertiseTitle">Expertise</p>
-      <div class="expertiseBox">
-        <p class="skill">
-          {%for e in request.user.profile.expertise.all%}
-            * {{e}} <br>
-          {%endfor%}</p>
-        {% comment %} <p class="expertise">{{request.user.profile.Expertise}}</p> {% endcomment %}
-      </div>
-      <p class="languageTitle">Languages</p>
-      <div class="languagesBox">
-        <p class="skill">
-          {%for e in request.user.profile.language.all%}
-            * {{e}} <br>
-          {%endfor%}</p></p>
-        {% comment %} <p class="expertise">{{request.user.profile.Language}}</p> {% endcomment %}
-      </div>
-      <div class="fileArea">
-        <p class="fileTitle">Files</p>
-        <div class="filesBox">
-          <p class="file">
-            {%for e in request.user.profile.files.all%}
-                * <a href="{{e.Url}}" class="fileLink">{{e.fileName}}</a> <br>
-            {%endfor%}</p></p>
-        </div>
-    </div>
-  </div>
-  
   <body>
+    <script src="static/search.js"></script>
     
+    <nav class="navbar">
+      <a class="title" href="{% url "userProfile" %}">Trust</a>
+      <img class="searchbar-img">
+        <img class="searchImg" src="static/images/search.png" />
+        <input
+          type="text"
+          class="searchbar"
+          placeholder="Search"
+          aria-label="Search"
+        
+        <form action="search/." type="get">
+          {% comment %} <inputx name="q" type="text" placeholder="Search..."> {% endcomment %}
+        <select name="Types" class="searchType">
+          <option value="1">Expertise</option>
+          <option value="2">Language</option>
+          <option value="3">Title</option>
+          <option value="4">Files</option>
+          <option value="5">Name</option>
+          <option value="6">Email</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+        <a class="logout" href="{% url "logout" %}">Log Out</a>
+    </nav>
+    <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
+      {%for e in users %}
+        
+        <button id="userbtn" class = "employeeBlock">
+          
+          {% comment %} <p>. . hello</p> {% endcomment %}
+                <div class="usr">
+                  <p>{{e.id}}</p>
+                  <p style="float:left;"> {{e.first_name}} {{e.last_name}}</p><p style="float:right;">{{e.profile.title}}</p>
+                    
+                </div>
+        </button>
+      {%endfor%}
+      <script>
+
+        var btn = document.getElementById("userbtn");
+        btn.addEventListener("click", alertMe);
+  
+        function alertMe(){
+            console.log("The button has been clicked!");
+        }
+  
+      </script>
+    </div>
+    <div class="profdisplay">
+      {%for e in users%}
+        {% if e.id == 5%}
+
+      <div class="bioBox">
+        <div class="name"><p>{{e.first_name}} {{e.last_name}}</p></div>
+        <div class="email"><p>{{e.email}}</p></div>
+        <div class="jobTitle"><p>{{e.profile.title}}</p></div>
+      </div>
+
+        {%endif%}
+      {%endfor%} 
+      <div class="skillsBox">
+        <p class="expertiseTitle">Expertise</p>
+        <div class="expertiseBox">
+          <p class="skill">
+            {% comment %} {%for e in users %} {% endcomment %}
+            {%for e in users%}
+              {% if e.id == 5%}
+                {% for f in e.profile.expertise.all%} 
+                  {{f}} <br>
+                {% endfor%}
+              {%endif%}
+            {%endfor%}</p>
+            {% comment %} {%endfor%} {% endcomment %}
+          {% comment %} <p class="expertise">{{request.user.profile.Expertise}}</p> {% endcomment %}
+        </div>
+        <p class="languageTitle">Languages</p>
+        <div class="languagesBox">
+          <p class="skill">
+            {%for e in users%}
+              {% if e.id == 5%}
+                {% for f in e.profile.language.all%} 
+                  {{f}} <br>
+                {% endfor%}
+              {%endif%}
+            {%endfor%}
+          </p></p>
+          {% comment %} <p class="expertise">{{request.user.profile.Language}}</p> {% endcomment %}
+        </div>
+        <div class="fileArea">
+          <p class="fileTitle">Files</p>
+          <div class="filesBox">
+            <p class="file">
+              {%for e in request.user.profile.files.all%}
+                  * <a href="{{e.Url}}" class="fileLink">{{e.fileName}}</a> <br>
+              {%endfor%}</p></p>
+          </div>
+      </div>
+    </div>
   </body>
   <footer>
     <button>WIP</button>

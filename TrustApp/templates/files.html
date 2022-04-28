@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-
-    <div class="fileList">
-        <form method="post" action="" name="fileList">
-            {% csrf_token %}
-            {%for i in files%}
-                <div class="indFile"><a href="{{i.Url}}" target="_blank">{{i.fileName}}</a>
-                    <input type="checkbox" 
-                    {%if request.user.profile.files.i.exist%} checked {%endif%}
-                    name="file{{i.id}}" id="file{{i.id}}"></div>
-
-            {%endfor%}
-            <button type="submit" name="fileList">Submit</button>
-        </form>
-    </div>
-
-    
+    <link href="static/files.css" rel="stylesheet" type="text/css" />
+  </head>
+  <nav class="navbar">
+    <a class="indexLink" href="{% url "userProfile" %}">Trust</a>
+    <a class="createUserLink" href="{% url "createUser" %}">Create User</a>
+    <a class="adminLink" href="{% url "admin:index" %}">Admin</a>
+    <a class="searchLink" href= "search+expertise+therapist"> Search</a>
+    <a class="updatePasswordLink" href="{% url "password" %}">Update Password</a>
+    <a class="logoutLink" href="{% url "logout" %}">Log Out</a>
+  </nav>
+  <body>
     <div class="newFile">
-        <form action="" method="post" name="fileAdd">
-            {% csrf_token %}
-            <p class="fName">File Name </p><input type="text" name="fileName">
-            <p class="urlname">Url (include http://) </p><input type="url" name="Url">
-            <button type="submit" name="fileAdd">Submit</button>
-        </form>
+      <form action="" method="post" name="fileAdd">
+        {% csrf_token %}
+        <p class="fName">File Name</p>
+        <input type="text" name="fileName" />
+        <p class="urlname">Url (include http://)</p>
+        <input type="url" name="Url" />
+        <button type="submit" name="fileAdd">Submit</button>
+      </form>
     </div>
-    
-</body>
+  </body>
 </html>

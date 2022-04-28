@@ -177,17 +177,23 @@ body {
 
 .leftside {
   float: left;
-  border: 5px solid rgba(196, 196, 196, 0.144);
+  border: 5px solid rgb(130, 176, 179);
   margin-top: 6%;
   margin-left: 2%;
   height: 52vw;
   border-radius: 12%;
   width: 30vw;
+  overflow: scroll;
+  overflow-x: hidden;
+  align-items: center;
+
 }
 
 .employeeBlock {
-  border: 5px solid rgba(196, 196, 196, 0.144);
-  height: 60px;
-  width: 70px;
+  border: 5px solid rgb(130, 176, 179);
+  height: 20%;
+  width: 95%;
+  border-radius: 10%;
+  margin: 2.5%;
 }
 

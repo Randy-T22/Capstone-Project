@@ -7,6 +7,14 @@
     <title>Update Password</title>
     <link href="static/updateForm.css" rel="stylesheet" type="text/css" />
   </head>
+  <nav class="navbar">
+    <a class="indexLink" href="{% url "userProfile" %}">Trust</a>
+    <a class="createUserLink" href="{% url "createUser" %}">Create User</a>
+    <a class="adminLink" href="{% url "admin:index" %}">Admin</a>
+    <a class="searchLink" href= "search+expertise+therapist"> Search</a>
+    <a class="updatePasswordLink" href="{% url "password" %}">Update Password</a>
+    <a class="logoutLink" href="{% url "logout" %}">Log Out</a>
+  </nav>
   <body>
     <div class="formSpace">
       <form method="post">
