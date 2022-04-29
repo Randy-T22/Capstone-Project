@@ -86,7 +86,7 @@ def updatePassword(request):
         'form': form
     })
 
-def getUsers(request,type,prof):
+def getUsers(request):
     User = get_user_model()
     users = User.objects.all()
     context = {'users': users}
