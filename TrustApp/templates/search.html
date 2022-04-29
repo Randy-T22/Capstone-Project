@@ -104,9 +104,13 @@
           <p class="fileTitle">Files</p>
           <div class="filesBox">
             <p class="file">
-              {%for e in request.user.profile.files.all%}
-                  * <a href="{{e.Url}}" class="fileLink">{{e.fileName}}</a> <br>
-              {%endfor%}</p></p>
+              {%for e in users%}
+                {% if e.id == 4%}
+                  {%for f in user.profile.files.all%}
+                      * <a href="{{f.Url}}" class="fileLink">{{f.fileName}}</a> <br>
+                  {%endfor%}</p></p>
+                {%endif%}
+              {%endfor%}
           </div>
       </div>
     </div>
