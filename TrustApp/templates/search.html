@@ -105,8 +105,8 @@
           <div class="filesBox">
             <p class="file">
               {%for e in users%}
-                {% if e.id == 4%}
-                  {%for f in user.profile.files.all%}
+                {% if e.id == 5%}
+                  {%for f in e.profile.files.all%}
                       * <a href="{{f.Url}}" class="fileLink">{{f.fileName}}</a> <br>
                   {%endfor%}</p></p>
                 {%endif%}
