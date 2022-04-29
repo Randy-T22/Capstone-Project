@@ -107,15 +107,15 @@ def filesView(request):
     return render(request, 'files.html', context)
 
 @login_required(login_url='login')
-def createUser(request):
-    allTitles=Title.objects.all()
-    if request.POST:
-        form = NewEmployeeForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect(homeView)
-    context = {'form':NewEmployeeForm, 'allTitles':allTitles}
-    return render(request, 'createUser.html', context)
+# def createUser(request):
+#     allTitles=Title.objects.all()
+#     if request.POST:
+#         form = NewEmployeeForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#         return redirect(homeView)
+#     context = {'form':NewEmployeeForm, 'allTitles':allTitles}
+#     return render(request, 'createUser.html', context)
 
 def createUser(request) -> HttpResponse:
     groups = ['Manager', 'Admin', 'Employee', 'Inactive']
