@@ -10,7 +10,6 @@
     <link href="static/search.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <script src="static/search.js"></script>
     
     <nav class="navbar">
       <a class="title" href="{% url "userProfile" %}">Trust</a>
@@ -39,26 +38,16 @@
     <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
       {%for e in users %}
         
-        <button id="userbtn" class = "employeeBlock">
+        <button id="userList" class = "employeeBlock">
           
           {% comment %} <p>. . hello</p> {% endcomment %}
                 <div class="usr">
-                  <p>{{e.id}}</p>
+                  <p id="userID">{{e.id}}</p>
                   <p style="float:left;"> {{e.first_name}} {{e.last_name}}</p><p style="float:right;">{{e.profile.title}}</p>
                     
                 </div>
         </button>
       {%endfor%}
-      <script>
-
-        var btn = document.getElementById("userbtn");
-        btn.addEventListener("click", alertMe);
-  
-        function alertMe(){
-            console.log("The button has been clicked!");
-        }
-  
-      </script>
     </div>
     <div class="profdisplay">
       {%for e in users%}
@@ -104,18 +93,15 @@
           <p class="fileTitle">Files</p>
           <div class="filesBox">
             <p class="file">
-              {%for e in users%}
-                {% if e.id == 5%}
-                  {%for f in e.profile.files.all%}
-                      * <a href="{{f.Url}}" class="fileLink">{{f.fileName}}</a> <br>
-                  {%endfor%}</p></p>
-                {%endif%}
-              {%endfor%}
+              {%for e in request.user.profile.files.all%}
+                  * <a href="{{e.Url}}" class="fileLink">{{e.fileName}}</a> <br>
+              {%endfor%}</p></p>
           </div>
       </div>
     </div>
   </body>
   <footer>
     <button>WIP</button>
+    <script src="{% static 'js/search.js' %}" type="text/javascript"></script>
   </footer>
 </html>
