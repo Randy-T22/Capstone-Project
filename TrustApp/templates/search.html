@@ -42,7 +42,6 @@
           
           {% comment %} <p>. . hello</p> {% endcomment %}
                 <div class="usr">
-                  <p id="userID">{{e.id}}</p>
                   <p style="float:left;"> {{e.first_name}} {{e.last_name}}</p><p style="float:right;">{{e.profile.title}}</p>
                     
                 </div>
@@ -51,7 +50,7 @@
     </div>
     <div class="profdisplay">
       {%for e in users%}
-        {% if e.id == 2%}
+        {% if e.id == ValX%}
 
       <div class="bioBox">
         <div class="name"><p>{{e.first_name}} {{e.last_name}}</p></div>
@@ -67,7 +66,7 @@
           <p class="skill">
             {% comment %} {%for e in users %} {% endcomment %}
             {%for e in users%}
-              {% if e.id == 2%}
+              {% if e.id == ValX%}
                 {% for f in e.profile.expertise.all%} 
                   {{f}} <br>
                 {% endfor%}
@@ -80,7 +79,7 @@
         <div class="languagesBox">
           <p class="skill">
             {%for e in users%}
-              {% if e.id == 2%}
+              {% if e.id == ValX%}
                 {% for f in e.profile.language.all%} 
                   {{f}} <br>
                 {% endfor%}
@@ -94,7 +93,7 @@
           <div class="filesBox">
             <p class="file">
               {%for e in users%}
-                {% if e.id == 2%}
+                {% if e.id == ValX%}
                   {%for f in request.user.profile.files.all%}
                       * <a href="{{f.Url}}" class="fileLink">{{f.fileName}}</a> <br>
                   {%endfor%}</p></p>

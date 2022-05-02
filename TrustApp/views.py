@@ -12,8 +12,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.models import User, Group
-from django.contrib.auth.hashers import check_password, make_password
+from django.contrib.auth.models import User
 from .models import *
 from .forms import *
 
@@ -27,13 +26,12 @@ from django.contrib.auth import get_user_model
 
 @login_required(login_url='login')
 def homeView(request) -> HttpResponse:
-    a = checkpw(request)
-    if a:
+    if checkpw(request):
         return redirect('password')
     return render(request, "index.html")
 
 def checkpw(request):
-    if  check_password('OneTwoThree' , request.user.password):
+    if request.user.password == 'pbkdf2_sha256$320000$E0xcnBZBz7UO9jYjIFNjiM$XOY+5CbYaOS9+wQJUjMr3NCspJ8ddOHie1nsy6rs14M=':
         return True
     return False
 
@@ -88,50 +86,36 @@ def updatePassword(request):
         'form': form
     })
 
-def getUsers(request):
+def getthepeeps(request, EmployeeId):
     User = get_user_model()
     users = User.objects.all()
-    context = {'users': users}
+    valex  = int(EmployeeId)
+    context = {'users': users, 'ValX': valex}
     
     return render(request, "search.html", context)
 
 def filesView(request):
+    usr = request.user
     files = Files.objects.all()
-    context = {"files": files}
+    context = {"files": files, 'usr': usr}
     if request.method == 'POST':
         if 'fileAdd' in request.POST:
             fileName = request.POST['fileName']
             Url = request.POST['Url']
             f = Files.objects.create(fileName = fileName, Url = Url)
-            f.save()
+            f.save()    
             us = request.user.profile.files
-            us.add(f)
+            us.add(f)    
     return render(request, 'files.html', context)
 
 @login_required(login_url='login')
-# def createUser(request):
-#     allTitles=Title.objects.all()
-#     if request.POST:
-#         form = NewEmployeeForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#         return redirect(homeView)
-#     context = {'form':NewEmployeeForm, 'allTitles':allTitles}
-#     return render(request, 'createUser.html', context)
-
-def createUser(request) -> HttpResponse:
-    if request.method == 'POST':
-        first_name = request.POST['first_name'] 
-        last_name = request.POST['last_name'] 
-        email = request.POST['email']
-        username = email
-        password = make_password('OneTwoThree')
-        User.objects.create(
-             username = username, password = password, first_name = first_name, last_name = last_name,
-             email = email
-        )
-        
-        
+def createUser(request):
     allTitles=Title.objects.all()
-    context = {'allTitles':allTitles}
-    return render(request, "createUser.html", context)
+    if request.POST:
+        form = NewEmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect(homeView)
+    context = {'form':NewEmployeeForm, 'allTitles':allTitles}
+    return render(request, 'createUser.html', context)
+
