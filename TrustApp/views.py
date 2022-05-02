@@ -13,7 +13,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User, Group
-from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import check_password, make_password
 from .models import *
 from .forms import *
 
@@ -120,20 +120,18 @@ def filesView(request):
 #     return render(request, 'createUser.html', context)
 
 def createUser(request) -> HttpResponse:
-    groups = ['Manager', 'Admin', 'Employee', 'Inactive']
-    if request.method == "POST":
-        first_name, last_name, email, group, title = request.POST['firstName',
-         'lastName', 'email', 'group', 'title']
+    if request.method == 'POST':
+        first_name = request.POST['first_name'] 
+        last_name = request.POST['last_name'] 
+        email = request.POST['email']
         username = email
-        password = 'OneTwoThree'
+        password = make_password('OneTwoThree')
         User.objects.create(
-             username = username, password = password
+             username = username, password = password, first_name = first_name, last_name = last_name,
+             email = email
         )
-        usr = User.objects.get(username == username)
-        usr.first_name = first_name
-        usr.last_name = last_name
-        usr.groups.add(group)
-        usr.title = title
+        
+        
     allTitles=Title.objects.all()
-    context = {'groups':groups, 'allTitles':allTitles}
+    context = {'allTitles':allTitles}
     return render(request, "createUser.html", context)

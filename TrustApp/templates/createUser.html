@@ -16,20 +16,15 @@
     <a class="logoutLink" href="{% url "logout" %}">Log Out</a>
   </nav>
 <body>
+  <!-- ----------------------- -->
+  <!-- Need to find this (CSS) -->
+  <p class="info">Please contact an admin about adding a profile before letting them use account</p>
+  <!-- ----------------------- -->
+  <!-- ----------------------- -->
   <form class="form" name="form" action="{% url "createUser" %}" method="POST"> {% csrf_token %}
     <input type="text" placeholder="First Name" name="first_name" />
     <input type="text" placeholder="Last Name" name="last_name" />
     <input type="text" placeholder="Email Address" name="email" />
-    <select name="title">
-    {% for title in allTitles %}
-    <option value="{{title.id}}"> {{title}}</option>
-    {% endfor %}
-    </select>
-    <select name="group">
-      {%for group in groups%}
-        <option value="{{group.id}}">{{group}}</option>
-      {%endfor%}
-    </select>
     <button type="submit" value="POST" class="saveButton">Save changes</button>
 </body>
 </html>
