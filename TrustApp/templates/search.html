@@ -51,7 +51,7 @@
     </div>
     <div class="profdisplay">
       {%for e in users%}
-        {% if e.id == 4%}
+        {% if e.id == 2%}
 
       <div class="bioBox">
         <div class="name"><p>{{e.first_name}} {{e.last_name}}</p></div>
@@ -67,7 +67,7 @@
           <p class="skill">
             {% comment %} {%for e in users %} {% endcomment %}
             {%for e in users%}
-              {% if e.id == 4%}
+              {% if e.id == 2%}
                 {% for f in e.profile.expertise.all%} 
                   {{f}} <br>
                 {% endfor%}
@@ -80,7 +80,7 @@
         <div class="languagesBox">
           <p class="skill">
             {%for e in users%}
-              {% if e.id == 4%}
+              {% if e.id == 2%}
                 {% for f in e.profile.language.all%} 
                   {{f}} <br>
                 {% endfor%}
@@ -93,9 +93,13 @@
           <p class="fileTitle">Files</p>
           <div class="filesBox">
             <p class="file">
-              {%for e in request.user.profile.files.all%}
-                  * <a href="{{e.Url}}" class="fileLink">{{e.fileName}}</a> <br>
-              {%endfor%}</p></p>
+              {%for e in users%}
+                {% if e.id == 2%}
+                  {%for f in request.user.profile.files.all%}
+                      * <a href="{{f.Url}}" class="fileLink">{{f.fileName}}</a> <br>
+                  {%endfor%}</p></p>
+                {%endif%}
+              {%endfor%}
           </div>
       </div>
     </div>
