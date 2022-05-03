@@ -5,7 +5,6 @@ body {
   margin: 0px;
   display: flex;
   justify-content: space-between;
-  background-image: url("https://www.bing.com/images/search?q=basic+backgrounds&id=BA6C03B3E9957AFCB592894E010002779CEDEEF6&FORM=IQFRBA");
 }
 .navbar {
   background-color: rgb(130, 176, 179);
@@ -15,7 +14,7 @@ body {
   background-size: auto;
   height: 5vw;
 }
-.title {
+.indexLink {
   margin-top: 1%;
   position: fixed;
   font-size: 2.5vw;
@@ -23,29 +22,47 @@ body {
   margin-left: 3vw;
   color: white;
 }
-.searchbar {
-  margin-top: 1.5%;
-  padding-left: 2%;
+.createUserLink {
+  margin-left: 13%;
   position: fixed;
-  margin-left: 17%;
-  height: 1.5vw;
-  width: 40vw;
-  border-radius: 0.25vw;
-  border-color: black;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
 }
-.searchImg {
-  height: 1.4vw;
-  margin-top: 1.75%;
-  margin-left: 17.45%;
+.adminLink {
+  margin-left: 30%;
   position: fixed;
-  z-index: 2;
-  color: grey;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
 }
-.searchType {
-  margin-left: 17%;
-  margin-top: 3.35%;
+.searchLink {
+  margin-left: 54%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: black;
 }
-.logout {
+.updatePasswordLink {
+  margin-left: 66%;
+  position: fixed;
+  margin-top: 1%;
+  font-size: 2.5vw;
+  text-decoration: none;
+  border: none;
+  padding-right: 3vw;
+  color: white;
+}
+.logoutLink {
   margin-left: 60%;
   margin-top: 1%;
   float: right;
@@ -78,6 +95,19 @@ body {
   position: fixed;
   color: black;
 }
+.jobDescriptionBox {
+  visibility: hidden;
+  width: 25vw;
+  height: 15vw;
+  border-radius: 4vw;
+  padding-top: 1%;
+  margin-top: 11%;
+  margin-left: 50.5%;
+  background-color: rgb(130, 176, 179);
+  z-index: 9;
+  border-style: solid;
+  border-color: black;
+}
 .jobTitle {
   margin-top: 1%;
   margin-left: 20%;
@@ -87,7 +117,13 @@ body {
   text-decoration: underline;
 }
 
+.jobTitle:hover + .jobDescriptionBox {
+  visibility: visible;
+  z-index: 9;
+}
+
 .skillsBox {
+  z-index: 8;
   background-color: rgba(196, 196, 196, 0.144);
   position: fixed;
   margin-top: 12.5%;
@@ -122,12 +158,14 @@ body {
 }
 
 .languageTitle {
+  z-index: 8;
   margin-top: -45%;
   margin-left: 55%;
   font-size: 2vw;
 }
 
 .languagesBox {
+  z-index: 8;
   background-color: white;
   margin-left: 55%;
   margin-right: 5%;
@@ -176,17 +214,15 @@ body {
 }
 
 .leftside {
-  float: left;
   border: 5px solid rgb(130, 176, 179);
   margin-top: 6%;
-  margin-left: 2%;
+  margin-left: -63.5%;
   height: 52vw;
   border-radius: 12%;
   width: 30vw;
   overflow: scroll;
   overflow-x: hidden;
   align-items: center;
-
 }
 
 .employeeBlock {
@@ -196,4 +232,3 @@ body {
   border-radius: 10%;
   margin: 2.5%;
 }
-

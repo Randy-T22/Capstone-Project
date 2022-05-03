@@ -12,27 +12,13 @@
   <body>
     
     <nav class="navbar">
-      <a class="title" href="{% url "userProfile" %}">Trust</a>
-      <img class="searchbar-img">
-        <img class="searchImg" src="static/images/search.png" />
-        <input
-          type="text"
-          class="searchbar"
-          placeholder="Search"
-          aria-label="Search"
-        
-        <form action="search/." type="get">
-          {% comment %} <inputx name="q" type="text" placeholder="Search..."> {% endcomment %}
-        <select name="Types" class="searchType">
-          <option value="1">Expertise</option>
-          <option value="2">Language</option>
-          <option value="3">Title</option>
-          <option value="4">Files</option>
-          <option value="5">Name</option>
-          <option value="6">Email</option>
-        </select>
-        <button type="submit">Search</button>
-      </form>
+      <a class="indexLink" href="{% url "userProfile" %}">Trust</a>
+      <a class="createUserLink" href="{% url "createUser" %}">Create User</a>
+      <a class="adminLink" href="{% url "admin:index" %}">Admin</a>
+      <a class="searchLink" href= "search+1"> Search</a>
+      <a class="updatePasswordLink" href="{% url "password" %}">Update Password</a>
+      <a class="logoutLink" href="{% url "logout" %}">Log Out</a>
+    </nav>
         <a class="logout" href="{% url "logout" %}">Log Out</a>
     </nav>
     <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
@@ -56,6 +42,7 @@
         <div class="name"><p>{{e.first_name}} {{e.last_name}}</p></div>
         <div class="email"><p>{{e.email}}</p></div>
         <div class="jobTitle"><p>{{e.profile.title}}</p></div>
+        <div class="jobDescriptionBox"><p class="jobDescription">{{request.user.profile.title.titleDesc}}</p></div>
       </div>
 
         {%endif%}
