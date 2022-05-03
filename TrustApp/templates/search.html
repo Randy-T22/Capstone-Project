@@ -94,7 +94,7 @@
             <p class="file">
               {%for e in users%}
                 {% if e.id == ValX%}
-                  {%for f in request.user.profile.files.all%}
+                  {%for f in e.profile.files.all%}
                       * <a href="{{f.Url}}" class="fileLink">{{f.fileName}}</a> <br>
                   {%endfor%}</p></p>
                 {%endif%}
