@@ -5,7 +5,7 @@ from django.http.response import HttpResponse
 from django.http.request import HttpRequest
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.views.generic import ListView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -14,6 +14,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
+
 from .models import *
 from .forms import *
 
@@ -26,6 +27,7 @@ from django.contrib.auth import get_user_model
 # Create your views here.
 
 @login_required(login_url='login')
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.groups.filter(name='Employee') or u.groups.filter(name='Admin'), login_url='userAccessDenied')
 def homeView(request) -> HttpResponse:
     if check_password('OneTwoThree', request.user.password):
         return redirect('password')
@@ -60,10 +62,17 @@ def deniedManager(request) -> HttpResponse:
 def deniedAdmin(request) -> HttpResponse:
     return render(request, "denied(admin).html")
 
+
 def findUsers(request) -> HttpRequest:
     context = {'usrs': User.objects.all()}
 
     return render(request, "search.html", context)
+
+
+@user_passes_test(lambda u: u.groups.filter(name='Admin'), login_url='userAccessDenied')
+@login_required(login_url='login')
+def adminRedir(request):
+    return redirect('admin:index')
 
 
 
@@ -84,6 +93,8 @@ def updatePassword(request):
         'form': form
     })
 
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.groups.filter(name='Employee') or u.groups.filter(name='Admin'), login_url='userAccessDenied')
+@login_required(login_url='login')
 def getthepeeps(request, EmployeeId):
     User = get_user_model()
     users = User.objects.all()
@@ -92,6 +103,8 @@ def getthepeeps(request, EmployeeId):
     
     return render(request, "search.html", context)
 
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.groups.filter(name='Employee') or u.groups.filter(name='Admin'), login_url='userAccessDenied')
+@login_required(login_url='login')
 def filesView(request):
     usr = request.user
     files = Files.objects.all()
@@ -107,6 +120,7 @@ def filesView(request):
     return render(request, 'files.html', context)
 
 @login_required(login_url='login')
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='managerAccessDenied')
 def createUser(request):
     allTitles=Title.objects.all()
     if request.POST:
