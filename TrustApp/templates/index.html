@@ -9,7 +9,10 @@
   </head>
   <nav class="navbar">
     <a class="indexLink" href="">Trust</a>
+    {% if perms.auth.create_user %}
     <a class="createUserLink" href="{% url "createUser" %}">Create User</a>
+    {%endif%}
+    {% if perms.auth.delete_user %}
     <a class="adminLink" href="{% url "admin:index" %}">Admin</a>
     <a class="searchLink" href= "search+{{request.user.id}}"> Search</a>
     <a class="updatePasswordLink" href="{% url "password" %}">Update Password</a>
