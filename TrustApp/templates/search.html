@@ -59,7 +59,7 @@
             {%for e in users%}
               {% if e.id == ValX%}
                 {% for f in e.profile.expertise.all%} 
-                  {{f}} <br>
+                   * {{f}} <br>
                 {% endfor%}
               {%endif%}
             {%endfor%}</p>
@@ -72,7 +72,7 @@
             {%for e in users%}
               {% if e.id == ValX%}
                 {% for f in e.profile.language.all%} 
-                  {{f}} <br>
+                  * {{f}} <br>
                 {% endfor%}
               {%endif%}
             {%endfor%}
