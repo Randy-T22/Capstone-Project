@@ -13,6 +13,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
+from django.contrib.auth.hashers import check_password
 from .models import *
 from .forms import *
 
@@ -26,14 +27,11 @@ from django.contrib.auth import get_user_model
 
 @login_required(login_url='login')
 def homeView(request) -> HttpResponse:
-    if checkpw(request):
+    if check_password('OneTwoThree', request.user.password):
         return redirect('password')
     return render(request, "index.html")
 
-def checkpw(request):
-    if request.user.password == 'pbkdf2_sha256$320000$E0xcnBZBz7UO9jYjIFNjiM$XOY+5CbYaOS9+wQJUjMr3NCspJ8ddOHie1nsy6rs14M=':
-        return True
-    return False
+
 
 def logoutUser(request):
     logout(request)
