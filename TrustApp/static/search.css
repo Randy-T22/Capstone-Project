@@ -73,10 +73,11 @@ body {
   color: white;
 }
 .bioBox {
+  z-index: 8;
   margin-top: 5%;
   background-color: white;
   position: fixed;
-  height: 10vw;
+  height: 7vw;
   width: 50%;
   margin-left: -60%;
 }
@@ -97,16 +98,20 @@ body {
 }
 .jobDescriptionBox {
   visibility: hidden;
+  position: relative;
   width: 25vw;
   height: 15vw;
   border-radius: 4vw;
   padding-top: 1%;
-  margin-top: 11%;
+  padding-left: 2%;
+  padding-right: 1%;
+  margin-top: 13%;
   margin-left: 50.5%;
+  color: white;
   background-color: rgb(130, 176, 179);
-  z-index: 9;
   border-style: solid;
   border-color: black;
+  z-index: 10;
 }
 .jobTitle {
   margin-top: 1%;
@@ -119,11 +124,12 @@ body {
 
 .jobTitle:hover + .jobDescriptionBox {
   visibility: visible;
-  z-index: 9;
+  z-index: 10;
+  position: relative;
 }
 
 .skillsBox {
-  z-index: 8;
+  z-index: 1;
   background-color: rgba(196, 196, 196, 0.144);
   position: fixed;
   margin-top: 12.5%;
@@ -150,6 +156,8 @@ body {
   border-style: solid;
   border-color: black;
   font-size: 2.5vw;
+  overflow-x: hidden;
+  align-items: center;
 
 }
 
@@ -160,14 +168,12 @@ body {
 }
 
 .languageTitle {
-  z-index: 8;
   margin-top: -45%;
   margin-left: 55%;
   font-size: 2vw;
 }
 
 .languagesBox {
-  z-index: 8;
   background-color: white;
   margin-left: 55%;
   margin-right: 5%;
@@ -176,6 +182,8 @@ body {
   border-style: solid;
   border-color: black;
   font-size: 2.5vw;
+  overflow-x: hidden;
+  align-items: center;
 
 }
 
@@ -183,9 +191,6 @@ body {
   margin-top: 1.25%;
   margin-left: 1%;
   position: fixed;
-  font-size: 3%;
-
-
 }
 
 .fileArea {
@@ -194,9 +199,7 @@ body {
   position: fixed;
   height: 12.5vw;
   width: 62.5%;
-  z-index: -1;
   font-size: 3%;
-
 }
 
 .fileTitle {

@@ -20,11 +20,7 @@
     <a class="logoutLink" href="{% url "logout" %}">Log Out</a>
   </nav>
 <body>
-  <!-- ----------------------- -->
-  <!-- Need to find this (CSS) -->
   <p class="info">Please contact an admin about adding a profile before letting them use account</p>
-  <!-- ----------------------- -->
-  <!-- ----------------------- -->
   <form class="form" name="form" action="{% url "createUser" %}" method="POST"> {% csrf_token %}
     <input type="text" placeholder="First Name" name="first_name" />
     <input type="text" placeholder="Last Name" name="last_name" />
