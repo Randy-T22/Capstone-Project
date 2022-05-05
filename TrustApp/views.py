@@ -95,7 +95,7 @@ def updatePassword(request):
 
 @user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.groups.filter(name='Employee') or u.groups.filter(name='Admin'), login_url='userAccessDenied')
 @login_required(login_url='login')
-def getthepeeps(request, EmployeeId):
+def getUsers(request, EmployeeId):
     User = get_user_model()
     users = User.objects.all()
     valex  = int(EmployeeId)

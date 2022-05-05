@@ -10,7 +10,6 @@
     <link href="static/search.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    
     <nav class="navbar">
       <a class="indexLink" href="{% url "userProfile" %}">Trust</a>
       {% if perms.auth.add_user %}
@@ -27,13 +26,9 @@
     </nav>
     <div class = "leftside" style="border: 5px solid rgba(196, 196, 196, 0.144);">
       {%for e in users %}
-        
         <button id="userList" class = "employeeBlock">
-          
-          {% comment %} <p>. . hello</p> {% endcomment %}
                 <div class="usr">
-                  <p style="float:left;"> {{e.first_name}} {{e.last_name}}</p><p style="float:right;">{{e.profile.title}}</p>
-                    
+                  <p style="float:left;"> {{e.first_name}} {{e.last_name}}</p><p style="float:right;">{{e.profile.title}}</p> 
                 </div>
         </button>
       {%endfor%}
@@ -41,43 +36,37 @@
     <div class="profdisplay">
       {%for e in users%}
         {% if e.id == ValX%}
-
       <div class="bioBox">
         <div class="name"><p>{{e.first_name}} {{e.last_name}}</p></div>
         <div class="email"><p>{{e.email}}</p></div>
         <div class="jobTitle"><p>{{e.profile.title}}</p></div>
         <div class="jobDescriptionBox"><p class="jobDescription">{{request.user.profile.title.titleDesc}}</p></div>
       </div>
-
         {%endif%}
       {%endfor%} 
       <div class="skillsBox">
         <p class="expertiseTitle">Expertise</p>
         <div class="expertiseBox">
-          <p class="skill">
-            {% comment %} {%for e in users %} {% endcomment %}
+          <p class="expertise">
             {%for e in users%}
               {% if e.id == ValX%}
                 {% for f in e.profile.expertise.all%} 
-                   * {{f}} <br>
+                   • {{f}} <br>
                 {% endfor%}
               {%endif%}
             {%endfor%}</p>
-            {% comment %} {%endfor%} {% endcomment %}
-          {% comment %} <p class="expertise">{{request.user.profile.Expertise}}</p> {% endcomment %}
         </div>
         <p class="languageTitle">Languages</p>
         <div class="languagesBox">
-          <p class="skill">
+          <p class="languages">
             {%for e in users%}
               {% if e.id == ValX%}
                 {% for f in e.profile.language.all%} 
-                  * {{f}} <br>
+                  • {{f}} <br>
                 {% endfor%}
               {%endif%}
             {%endfor%}
           </p></p>
-          {% comment %} <p class="expertise">{{request.user.profile.Language}}</p> {% endcomment %}
         </div>
         <div class="fileArea">
           <p class="fileTitle">Files</p>
@@ -86,7 +75,7 @@
               {%for e in users%}
                 {% if e.id == ValX%}
                   {%for f in e.profile.files.all%}
-                      * <a href="{{f.Url}}" class="fileLink">{{f.fileName}}</a> <br>
+                      • <a href="{{f.Url}}" class="fileLink">{{f.fileName}}</a> <br>
                   {%endfor%}</p></p>
                 {%endif%}
               {%endfor%}
