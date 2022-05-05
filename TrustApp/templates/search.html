@@ -13,8 +13,8 @@
     
     <nav class="navbar">
       <a class="indexLink" href="{% url "userProfile" %}">Trust</a>
-      {% if perms.auth.create_user %}
-    <a class="createUserLink" href="{% url "createUser" %}">Create User</a>
+      {% if perms.auth.add_user %}
+      <a class="createUserLink" href="{% url "createUser" %}">Create User</a>
     {%endif%}
     {% if perms.auth.delete_user %}
     <a class="adminLink" href="{% url "admin:index" %}">Admin</a>
