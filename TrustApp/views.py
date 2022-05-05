@@ -122,6 +122,7 @@ def filesView(request):
 @login_required(login_url='login')
 @user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='managerAccessDenied')
 def createUser(request):
+    form = NewEmployeeForm
     allTitles=Title.objects.all()
     if request.POST:
        if request.method == 'POST':
@@ -135,6 +136,6 @@ def createUser(request):
              email = email
         )
         return redirect(homeView)
-    context = {'allTitles':allTitles}
+    context = {'allTitles':allTitles, 'form':form}
     return render(request, 'createUser.html', context)
 
