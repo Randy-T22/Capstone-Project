@@ -9,7 +9,7 @@
   </head>
   <nav class="navbar">
     <a class="indexLink" href="">Trust</a>
-    {% if perms.auth.create_user %}
+    {% if perms.auth.add_user %}
     <a class="createUserLink" href="{% url "createUser" %}">Create User</a>
     {%endif%}
     {% if perms.auth.delete_user %}
