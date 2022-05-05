@@ -73,7 +73,13 @@ body {
   color: white;
 }
 
+.info {
+  margin-top: 20%;
+}
+
 .form {
-  margin-top: 500px;
+  font-size: 2vw;
+  margin-right: 20%;
+  margin-top: 30%;
   color: black;
 }

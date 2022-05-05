@@ -13,7 +13,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
-from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import check_password, make_password
 
 from .models import *
 from .forms import *
@@ -95,7 +95,7 @@ def updatePassword(request):
 
 @user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.groups.filter(name='Employee') or u.groups.filter(name='Admin'), login_url='userAccessDenied')
 @login_required(login_url='login')
-def getthepeeps(request, EmployeeId):
+def getUsers(request, EmployeeId):
     User = get_user_model()
     users = User.objects.all()
     valex  = int(EmployeeId)
@@ -124,10 +124,17 @@ def filesView(request):
 def createUser(request):
     allTitles=Title.objects.all()
     if request.POST:
-        form = NewEmployeeForm(request.POST)
-        if form.is_valid():
-            form.save()
+       if request.method == 'POST':
+        first_name = request.POST['first_name'] 
+        last_name = request.POST['last_name'] 
+        email = request.POST['email']
+        username = email
+        password = make_password('OneTwoThree')
+        User.objects.create(
+             username = username, password = password, first_name = first_name, last_name = last_name,
+             email = email
+        )
         return redirect(homeView)
-    context = {'form':NewEmployeeForm, 'allTitles':allTitles}
+    context = {'allTitles':allTitles}
     return render(request, 'createUser.html', context)
 
