@@ -63,16 +63,14 @@ def deniedAdmin(request) -> HttpResponse:
     return render(request, "denied(admin).html")
 
 
+@login_required(login_url='login')
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.groups.filter(name='Employee') or u.groups.filter(name='Admin'), login_url='userAccessDenied')
 def findUsers(request) -> HttpRequest:
+    if check_password('OneTwoThree', request.user.password):
+        return redirect('password')
     context = {'usrs': User.objects.all()}
 
     return render(request, "search.html", context)
-
-
-@user_passes_test(lambda u: u.groups.filter(name='Admin'), login_url='userAccessDenied')
-@login_required(login_url='login')
-def adminRedir(request):
-    return redirect('admin:index')
 
 
 
@@ -96,6 +94,8 @@ def updatePassword(request):
 @user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.groups.filter(name='Employee') or u.groups.filter(name='Admin'), login_url='userAccessDenied')
 @login_required(login_url='login')
 def getUsers(request, EmployeeId):
+    if check_password('OneTwoThree', request.user.password):
+        return redirect('password')
     User = get_user_model()
     users = User.objects.all()
     valex  = int(EmployeeId)
@@ -106,6 +106,8 @@ def getUsers(request, EmployeeId):
 @user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.groups.filter(name='Employee') or u.groups.filter(name='Admin'), login_url='userAccessDenied')
 @login_required(login_url='login')
 def filesView(request):
+    if check_password('OneTwoThree', request.user.password):
+        return redirect('password')
     usr = request.user
     files = Files.objects.all()
     context = {"files": files, 'usr': usr}
@@ -122,6 +124,8 @@ def filesView(request):
 @login_required(login_url='login')
 @user_passes_test(lambda u: u.groups.filter(name='Manager').exists(), login_url='managerAccessDenied')
 def createUser(request):
+    if check_password('OneTwoThree', request.user.password):
+        return redirect('password')
     form = NewEmployeeForm
     allTitles=Title.objects.all()
     if request.POST:

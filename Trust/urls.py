@@ -19,7 +19,6 @@ from TrustApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
-    path('adminRedir', adminRedir, name='adminRedir'),
     path('', homeView, name="userProfile"),
     path("login", loginUser, name="login"),
     path("logout", logoutUser, name="logout"),
