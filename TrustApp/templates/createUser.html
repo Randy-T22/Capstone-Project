@@ -24,14 +24,15 @@
     <div class="info">
       <h1>Please contact an admin about adding a profile before letting them use account</h1>
     </div>
-    
+    <form name="form" action="{% url "createUser" %}" method="POST"> {% csrf_token %}
+
     <div class="CUForm-Wrapper">
-      <form name="form" action="{% url "createUser" %}" method="POST"> {% csrf_token %}
           <input type="text" placeholder="First Name" name="first_name" />
           <input type="text" placeholder="Last Name" name="last_name" />
-          <input type="text" placeholder="Email Address" name="email" />
-          <button type="submit" value="POST" class="saveButton">Save changes</button>
-      </form>
+          <input type="text" placeholder="Email Address" name="email" /> 
+    </div>
+    <button type="submit" value="POST" class="saveButton">Save changes</button>
+    </form>
     </div>
   </div>
 </body>
