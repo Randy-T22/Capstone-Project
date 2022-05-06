@@ -5,6 +5,7 @@ body {
   margin: 0px;
   display: flex;
   justify-content: space-between;
+  background-color: rgb(207, 207, 207);
 }
 .navbar {
   background-color: rgb(130, 176, 179);
@@ -74,12 +75,30 @@ body {
 }
 
 .info {
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
-.form {
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+input {
   font-size: 2vw;
-  margin-right: 20%;
-  margin-top: 30%;
-  color: black;
+}
+
+.CUForm-Wrapper {
+  margin-top: 3%;
+  padding-top: 10%;
+  background-color: rgb(130, 176, 179);
+  margin-left: 25%;
+  height: 40%;
+  width: 50%;
+  border-radius: 2.5vw;
+}
+
+.saveButton {
+  margin-top: 10%;
 }

@@ -20,11 +20,19 @@
     <a class="logoutLink" href="{% url "logout" %}">Log Out</a>
   </nav>
 <body>
-  <p class="info">Please contact an admin about adding a profile before letting them use account</p>
-  <form class="form" name="form" action="{% url "createUser" %}" method="POST"> {% csrf_token %}
-    <input type="text" placeholder="First Name" name="first_name" />
-    <input type="text" placeholder="Last Name" name="last_name" />
-    <input type="text" placeholder="Email Address" name="email" />
-    <button type="submit" value="POST" class="saveButton">Save changes</button>
+  <div class="page">
+    <div class="info">
+      <h1>Please contact an admin about adding a profile before letting them use account</h1>
+    </div>
+    
+    <div class="CUForm-Wrapper">
+      <form name="form" action="{% url "createUser" %}" method="POST"> {% csrf_token %}
+          <input type="text" placeholder="First Name" name="first_name" />
+          <input type="text" placeholder="Last Name" name="last_name" />
+          <input type="text" placeholder="Email Address" name="email" />
+          <button type="submit" value="POST" class="saveButton">Save changes</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
