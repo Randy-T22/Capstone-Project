@@ -18,7 +18,7 @@
     {% if perms.auth.delete_user %}
     <a class="adminLink" href="{% url "admin:index" %}">Admin</a>
     {%endif%}
-      <a class="searchLink" href= "search+1"> Search</a>
+      <a class="searchLink" href= "search+{{request.user.id}}"> Search</a>
       <a class="updatePasswordLink" href="{% url "password" %}">Update Password</a>
       <a class="logoutLink" href="{% url "logout" %}">Log Out</a>
     </nav>
