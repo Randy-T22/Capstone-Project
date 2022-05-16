@@ -2,6 +2,8 @@ I am creating this document to explain what I know you will need to start it up 
 
 I am also assuming that an Administrator is the one that gets this project.
 
+*** Do NOT DELETE any users as it will mess up the search page. ***
+
 Having said that, you will need to open a terminal and type:
 
 python3 manage.py createsuperuser
