@@ -1,0 +1,28 @@
+I am creating this document to explain what I know you will need to start it up from the beginning.
+
+I am also assuming that an Administrator is the one that gets this project.
+
+Having said that, you will need to open a terminal and type:
+
+python3 manage.py createsuperuser
+
+then you follow the prompt.
+
+To create users, you can easily create them through the create user link on the home page.
+
+After creating them, you will need to go to the admin panel, and create a profile for them. 
+
+It's the text on the left hand side of the screen on the admin panel that says profile.
+
+After that they can then start using it like it should be used.
+
+*** The Default Password Is ***
+
+ OneTwoThree
+
+***           ***           ***
+
+If you would like to change the default Password,
+
+go into the views.py inside of the TrustApp folder and change the six places that 'OneTwoThree' 
+are at.
